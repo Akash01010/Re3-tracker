@@ -179,6 +179,7 @@ class Re3Tracker(object):
                 self.batch_size : len(images) / 2
                 }
         rawOutput, s1, s2 = self.sess.run([self.outputs, self.state1, self.state2], feed_dict=feed_dict)
+        # print(rawOutput)
         outputBoxes = np.zeros((len(unique_ids), 4))
         for uu,unique_id in enumerate(unique_ids):
             lstmState, pastBBox, prevImage, originalFeatures, forwardCount = self.tracked_data[unique_id]
